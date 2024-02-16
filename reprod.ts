@@ -15,3 +15,11 @@ const result = await db.query.users.findFirst({
 });
 
 console.log(result);
+
+// but this works:
+const result2 = await db
+  .select()
+  .from(schema.users)
+  .where(eq(schema.users.username, "test"));
+
+console.log(result2);
